@@ -1,13 +1,13 @@
 import { createStore } from 'redux';
 import reducer from './reducers/reducers'
 
-// check or creates persisted Storage
+// checks or creates persisted Storage
 const persistedState = localStorage.getItem('reduxState')
     ? JSON.parse(localStorage.getItem('reduxState')) : localStorage.setItem('reduxState', '')
 
 const store = createStore(
     reducer, persistedState,
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 // subscribes persisted storage to the global redux store
