@@ -16,12 +16,12 @@ export default class MovieCard extends Component {
         return (
             <div className="card my-3 p-2 shadow" style={{ maxWidth: '70vw' }}>
                 <div className="row">
-                    <div className="col-8 pl-4 text-center">
+                    <div className="col-3 mx-auto">
+                        <img src={data.Poster} className="img-fluid" style={{ maxWidth: "100%" }}></img>
+                    </div>
+                    <div className="col-8 mx-auto text-center">
                         <h2>{data.Title}</h2>
                         <DetailsBar movie={data} />
-                    </div>
-                    <div className="col-4 mx-auto">
-                        <img src={data.Poster} style={{ width: 200 }}></img>
                     </div>
                 </div>
             </div>

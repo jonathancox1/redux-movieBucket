@@ -25,11 +25,14 @@ export default function DetailsBar({ movie }) {
     function toggle(val) {
         setItem(val);
         setHidden(false)
+        setTimeout(() => {
+            setHidden(true)
+        }, 5000);
     }
 
     return (
         <div>
-            <ul className="list-group list-group-horizontal-sm">
+            <ul className="list-group list-group-horizontal flex">
                 {mainList ? <SaveMovie data={movie} /> : <DeleteMovie data={movie} />}
                 <button onClick={() => toggle(data.Plot)} className="text-center list-group-item list-group-item-action">Plot</button>
                 <button onClick={() => toggle(data.Year)} className="text-center list-group-item list-group-item-action">Year</button>
