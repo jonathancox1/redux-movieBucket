@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { saveMovie } from '../../redux/actions/actions'
 
+//
+import 'antd/dist/antd.css';
+import { Button } from 'antd';
+//
+
+
 export default function SaveMovie({ data }) {
     const dispatch = useDispatch();
 
@@ -10,8 +16,6 @@ export default function SaveMovie({ data }) {
     }
 
     return (
-        <>
-            <button onClick={saveItem} className="text-center list-group-item list-group-item-action">Save</button>
-        </>
+        <Button onClick={saveItem}></Button>
     )
 }
