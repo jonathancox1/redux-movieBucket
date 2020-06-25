@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import Header from './Header'
@@ -22,12 +22,16 @@ export default function MainList() {
 
     function changeList() {
         dispatch(switchList());
+
+    }
+
+    useEffect(() => {
         if (mainList) {
             setList('redux')
         } else {
             setList('main');
         }
-    }
+    }, [])
 
     if (mainList) {
         arrayToMap = movies;
@@ -42,7 +46,9 @@ export default function MainList() {
             <div className="col-8 mx-auto flex-wrap text-center">
                 <Header />
                 {mainList && <SearchBar movies={searchData} />}
-                <Link onClick={changeList}>{link}</Link>
+                {mainList
+                    ? <Link to="/myList" onClick={changeList}>Saved List</Link>
+                    : <Link to="/" onClick={changeList}>Go Back</Link>}
                 {arrayToMap.map((movie) => {
                     return (
                         <MovieCard key={movie.imdbID} data={movie} style={{ width: "500px" }}></MovieCard>
