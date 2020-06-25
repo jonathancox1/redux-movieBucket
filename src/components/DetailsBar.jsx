@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import getDetails from './api/Details';
 import SaveMovie from './buttons/SaveMovie';
 import DeleteMovie from './buttons/DeleteMovie';
+import './DetailsAnimation.css'
 
 export default function DetailsBar({ movie }) {
     const [data, setData] = useState({})
@@ -25,19 +26,19 @@ export default function DetailsBar({ movie }) {
     function toggle(val) {
         setItem(val);
         setHidden(false)
-        setTimeout(() => {
-            setHidden(true)
-        }, 5000);
+        // setTimeout(() => {
+        //     setHidden(true)
+        // }, 5000);
     }
 
     return (
         <div>
-            <ul className="list-group list-group-horizontal flex">
+            <ul className="list-group list-group-horizontal">
                 {mainList ? <SaveMovie data={movie} /> : <DeleteMovie data={movie} />}
-                <button onClick={() => toggle(data.Plot)} className="text-center list-group-item list-group-item-action">Plot</button>
-                <button onClick={() => toggle(data.Year)} className="text-center list-group-item list-group-item-action">Year</button>
-                <button onClick={() => toggle(data.Actors)} className="text-center list-group-item list-group-item-action">Actors</button>
-                <button onClick={() => toggle(data.Awards)} className="text-center list-group-item list-group-item-action">Awards</button>
+                <button onClick={() => toggle(data.Plot)} className="text-center list-group-item text-center list-group-item-light list-group-item-action">Plot</button>
+                <button onClick={() => toggle(data.Year)} className="text-center list-group-item text-center list-group-item-light list-group-item-action">Year</button>
+                <button onClick={() => toggle(data.Actors)} className="text-center list-group-item text-center list-group-item-light list-group-item-action">Actors</button>
+                <button onClick={() => toggle(data.Awards)} className="text-center list-group-item text-center list-group-item-light list-group-item-action">Awards</button>
             </ul>
             <br />
             <div>
@@ -46,3 +47,4 @@ export default function DetailsBar({ movie }) {
         </div>
     )
 }
+

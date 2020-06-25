@@ -23,7 +23,7 @@ export default function SearchBar({ movies }) {
     }
 
     return (
-        <div>
+        <div className="mx-auto" style={{ width: "50vw" }}>
             <form id="search-form" onSubmit={onSubmit}>
                 <div className="input-group">
                     <input onChange={e => setSearch(e.target.value)} className="form-control search-bar" placeholder="Add a movie to your list" id="searchBar" />
