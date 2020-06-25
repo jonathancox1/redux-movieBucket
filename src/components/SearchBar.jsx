@@ -16,6 +16,8 @@ export default function SearchBar({ movies }) {
                 if (result != undefined) {
                     // dispatch(movieResults(result));
                     movies(result);
+                } else {
+                    console.log('error')
                 }
             })
     }

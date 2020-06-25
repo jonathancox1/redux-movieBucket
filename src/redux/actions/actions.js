@@ -13,3 +13,10 @@ export const deleteItem = (data) => {
     }
 }
 
+export const switchList = () => {
+    return {
+        type: 'LIST',
+        payload: null
+    }
+}
+

@@ -13,7 +13,9 @@ export default function DeleteMovie({ data }) {
 
     return (
         <div>
-            <small className="badge badge-pill badge-secondary"><button onClick={deleteMovie}>delete this movie</button></small>
+            <li onClick={deleteMovie} className="list-group-item">Delete</li>
+
+            {/* <small className="badge badge-pill badge-secondary"><button onClick={deleteMovie}>delete this movie</button></small> */}
         </div>
     )
 }

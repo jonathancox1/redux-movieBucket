@@ -1,9 +1,10 @@
 const initialState = {
-    movies: []
+    movies: [],
+    mainList: true
 }
 
 export default (state = initialState, { type, payload }) => {
-    const newState = { ...state }
+
     switch (type) {
 
         case 'SAVE_MOVIE':
@@ -12,6 +13,9 @@ export default (state = initialState, { type, payload }) => {
         case 'DEL_MOVIE':
             let results = state.movies.filter(movie => movie.imdbID !== payload.imdbID)
             return { ...state, movies: results }
+
+        case 'LIST':
+            return { ...state, mainList: !state.mainList }
 
         default:
             return state

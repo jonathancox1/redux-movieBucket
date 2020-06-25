@@ -10,8 +10,10 @@ export default function SaveMovie({ data }) {
     }
 
     return (
-        <div>
-            <small className="badge badge-pill badge-secondary"><button onClick={saveItem}>save this movie</button></small>
-        </div>
+        <>
+            <li onClick={saveItem} className="list-group-item">Save</li>
+
+            {/* <small className="badge badge-pill badge-secondary"><button onClick={saveItem}>save this movie</button></small> */}
+        </>
     )
 }
