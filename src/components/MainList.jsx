@@ -6,6 +6,7 @@ import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
 import { switchList } from '../redux/actions/actions';
 
+
 export default function MainList() {
     const [movies, setMovies] = useState([])
     const [list, setList] = useState('main');
@@ -22,7 +23,6 @@ export default function MainList() {
 
     function changeList() {
         dispatch(switchList());
-
     }
 
     useEffect(() => {

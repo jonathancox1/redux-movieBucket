@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import getDetails from './api/Details';
-import SaveMovie from './buttons/SaveMovie';
-import DeleteMovie from './buttons/DeleteMovie';
+import { saveMovie, deleteItem } from '../redux/actions/actions'
+
+
+
+//
+import 'antd/dist/antd.css';
+import { Tabs, Button } from 'antd';
+const { TabPane } = Tabs;
+//
 
 export default function DetailsBar({ movie }) {
     const [data, setData] = useState({})
@@ -10,6 +17,7 @@ export default function DetailsBar({ movie }) {
     const [hidden, setHidden] = useState(true)
     const mainList = useSelector(state => state.mainList)
     const movies = useSelector(state => state.movies)
+    const dispatch = useDispatch();
 
     useEffect(() => {
         getDetails(movie.imdbID)
@@ -23,26 +31,32 @@ export default function DetailsBar({ movie }) {
             })
     }, [])
 
-    function toggle(val) {
-        setItem(val);
-        setHidden(false)
+    function saveItem() {
+        dispatch(saveMovie(data))
     }
 
-    console.log('movies')
-    console.log(movies)
+    function deleteMovie() {
+        dispatch(deleteItem(data))
+    }
 
     return (
         <div>
-            <ul className="list-group list-group-horizontal">
-                {movies.findIndex((item) => item.imdbID === movie.imdbID) === -1
-                    ? <SaveMovie data={movie} />
-                    : <DeleteMovie data={movie} />}
-                {/* {mainList ? <SaveMovie data={movie} /> : <DeleteMovie data={movie} />} */}
-                <button onClick={() => toggle(data.Plot)} className="text-center list-group-item text-center list-group-item-light list-group-item-action">Plot</button>
-                <button onClick={() => toggle(data.Year)} className="text-center list-group-item text-center list-group-item-light list-group-item-action">Year</button>
-                <button onClick={() => toggle(data.Actors)} className="text-center list-group-item text-center list-group-item-light list-group-item-action">Actors</button>
-                <button onClick={() => toggle(data.Awards)} className="text-center list-group-item text-center list-group-item-light list-group-item-action">Awards</button>
-            </ul>
+            <Tabs
+                tabBarExtraContent={movies.findIndex((item) => item.imdbID === movie.imdbID) === -1
+                    ? <Button onClick={saveItem}>Save</Button>
+                    : <Button onClick={deleteMovie}>Delete</Button>}
+                defaultActiveKey="0"
+            >
+                <TabPane tab="Actors" key="1">
+                    {data.Actors}
+                </TabPane>
+                <TabPane tab="Plot" key="2">
+                    {data.Plot}
+                </TabPane>
+                <TabPane tab="Year" key="3">
+                    {data.Year}
+                </TabPane>
+            </Tabs>
             <br />
             <div>
                 {!hidden && itemToDisplay}

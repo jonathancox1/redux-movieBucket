@@ -3,18 +3,19 @@ import { useSelector, useDispatch } from 'react-redux'
 import getData from './api/OMDB';
 import { movieResults } from '../redux/actions/actions';
 
+//
+import { Input } from 'antd'
+const { Search } = Input;
+//
+
 
 export default function SearchBar({ movies }) {
-    const [search, setSearch] = useState('')
-    let dispatch = useDispatch();
 
-    function onSubmit(e) {
-        e.preventDefault();
-        getData(search)
+    function onSubmit(val) {
+        getData(val)
             .then((result) => {
                 console.log(result)
                 if (result != undefined) {
-                    // dispatch(movieResults(result));
                     movies(result);
                 } else {
                     console.log('error')
@@ -24,16 +25,7 @@ export default function SearchBar({ movies }) {
 
     return (
         <div className="mx-auto" style={{ width: "50vw" }}>
-            <form id="search-form" onSubmit={onSubmit}>
-                <div className="input-group">
-                    <input onChange={e => setSearch(e.target.value)} className="form-control search-bar" placeholder="Add a movie to your list" id="searchBar" />
-                    <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="submit">Search
-                                Movies</button>
-                    </div>
-                </div>
-            </form>
-
+            <Search onSearch={value => onSubmit(value)} />
         </div>
     )
 }
