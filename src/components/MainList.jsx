@@ -39,7 +39,7 @@ export default function MainList() {
 
     return (
         <div className="row mx-auto">
-            <div className="col-8 mx-auto text-center">
+            <div className="col-8 mx-auto flex-wrap text-center">
                 <Header />
                 {mainList && <SearchBar movies={searchData} />}
                 <Link onClick={changeList}>{link}</Link>
