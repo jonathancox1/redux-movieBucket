@@ -10,7 +10,7 @@ export default function MovieCard(props) {
                     <img src={props.data.Poster} className="" style={{ width: "100%" }}></img>
                 </div>
                 <div className="row-xs col-md-8 mx-auto text-center">
-                    <h2 className="text-left">{props.data.Title}</h2>
+                    <h2 className="text-center my-auto">{props.data.Title}</h2>
                     <DetailsBar movie={props.data} />
                 </div>
             </div>
