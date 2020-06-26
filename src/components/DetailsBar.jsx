@@ -45,7 +45,7 @@ export default function DetailsBar({ movie }) {
                 tabBarExtraContent={movies.findIndex((item) => item.imdbID === movie.imdbID) === -1
                     ? <Button onClick={saveItem}>Save</Button>
                     : <Button onClick={deleteMovie}>Delete</Button>}
-                defaultActiveKey="0"
+                defaultActiveKey="2"
             >
                 <TabPane tab="Actors" key="1">
                     {data.Actors}
