@@ -2,20 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import getDetails from './api/Details';
 import { saveMovie, deleteItem } from '../redux/actions/actions'
-
-
-
-//
 import 'antd/dist/antd.css';
 import { Tabs, Button } from 'antd';
 const { TabPane } = Tabs;
-//
+
 
 export default function DetailsBar({ movie }) {
     const [data, setData] = useState({})
     const [itemToDisplay, setItem] = useState('')
     const [hidden, setHidden] = useState(true)
-    const mainList = useSelector(state => state.mainList)
     const movies = useSelector(state => state.movies)
     const dispatch = useDispatch();
 
@@ -43,7 +38,7 @@ export default function DetailsBar({ movie }) {
         <div>
             <Tabs
                 tabBarExtraContent={movies.findIndex((item) => item.imdbID === movie.imdbID) === -1
-                    ? <Button onClick={saveItem}>Save</Button>
+                    ? <Button type="primary" onClick={saveItem}>Save</Button>
                     : <Button onClick={deleteMovie}>Delete</Button>}
                 defaultActiveKey="2"
             >
