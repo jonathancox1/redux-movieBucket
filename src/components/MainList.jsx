@@ -15,7 +15,6 @@ export default function MainList() {
     const dispatch = useDispatch();
 
     let arrayToMap = [];
-    let link = '';
 
     function searchData(data) {
         setMovies(data);
@@ -31,14 +30,12 @@ export default function MainList() {
         } else {
             setList('main');
         }
-    }, [])
+    }, [mainList])
 
     if (mainList) {
         arrayToMap = movies;
-        link = 'Saved List'
     } else {
         arrayToMap = moviesRedux;
-        link = 'Go Back'
     }
 
     return (

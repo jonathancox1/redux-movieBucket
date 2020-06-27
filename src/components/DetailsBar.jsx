@@ -9,8 +9,8 @@ const { TabPane } = Tabs;
 
 export default function DetailsBar({ movie }) {
     const [data, setData] = useState({})
-    const [itemToDisplay, setItem] = useState('')
-    const [hidden, setHidden] = useState(true)
+    const [itemToDisplay] = useState('')
+    const [hidden] = useState(true)
     const movies = useSelector(state => state.movies)
     const dispatch = useDispatch();
 
@@ -18,13 +18,13 @@ export default function DetailsBar({ movie }) {
         getDetails(movie.imdbID)
             .then((result) => {
                 console.log(result)
-                if (result != undefined) {
+                if (result !== undefined) {
                     setData(result);
                 } else {
                     console.log('error')
                 }
             })
-    }, [])
+    }, [movie.imdbID])
 
     function saveItem() {
         dispatch(saveMovie(data))

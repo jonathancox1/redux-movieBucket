@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import getData from './api/OMDB';
 
 //
@@ -13,7 +13,7 @@ export default function SearchBar({ movies }) {
         getData(val)
             .then((result) => {
                 console.log(result)
-                if (result != undefined) {
+                if (result !== undefined) {
                     movies(result);
                 } else {
                     console.log('error')
