@@ -9,7 +9,6 @@ import { switchList } from '../redux/actions/actions';
 
 export default function MainList() {
     const [movies, setMovies] = React.useState([])
-    const [list, setList] = React.useState('main');
     const moviesRedux = useSelector(state => state.movies)
     const mainList = useSelector(state => state.mainList)
     const dispatch = useDispatch();
@@ -24,13 +23,13 @@ export default function MainList() {
         dispatch(switchList());
     }
 
-    React.useEffect(() => {
-        if (mainList) {
-            setList('redux')
-        } else {
-            setList('main');
-        }
-    }, [mainList])
+    // React.useEffect(() => {
+    //     if (mainList) {
+    //         setList('redux')
+    //     } else {
+    //         setList('main');
+    //     }
+    // }, [mainList])
 
     if (mainList) {
         arrayToMap = movies;
