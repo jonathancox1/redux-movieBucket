@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+View the app here [Live Demo](https://jonathancox-reduxmovies.netlify.app).
 
 ## Available Scripts
 
