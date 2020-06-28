@@ -1,4 +1,18 @@
-View the app here [Live Demo](https://jonathancox-reduxmovies.netlify.app).
+# myMovieBucket
+A single page Redux app that interacts with the OMDB API.  Data is returned to the user and rederend to the page.  Data includes - Movie titles, posters, actors, release year, ratings, and a plot synopsis.  The user can then save and remove movies from a watchlist that lives in local storage.  
+[View the app here](https://jonathancox-reduxmovies.netlify.app/)
+
+## Technologies Used
+React, Redux, Javascript, Postman, RESTful API, HTML5, CSS3, Bootstrap4, JSON
+
+## What I learned
+- Accessing a RESTful API
+- Consuming JSON data
+- Formatting and rendering data to the page
+- Interacting with data on page through hooks
+- Creating and persisting a local data store with Redux
+- Reading and writing to localStorage
+
 
 ## Available Scripts
 
