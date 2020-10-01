@@ -13,7 +13,7 @@ export default function MainList() {
     const mainList = useSelector(state => state.mainList)
     const dispatch = useDispatch();
 
-    let arrayToMap = [];
+    const arrayToMap = [];
 
     function searchData(data) {
         setMovies(data);
@@ -23,13 +23,6 @@ export default function MainList() {
         dispatch(switchList());
     }
 
-    // React.useEffect(() => {
-    //     if (mainList) {
-    //         setList('redux')
-    //     } else {
-    //         setList('main');
-    //     }
-    // }, [mainList])
 
     if (mainList) {
         arrayToMap = movies;
